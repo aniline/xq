@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Top>
+  <Second><![CDATA[Ding&Dong=]]></Second>
+  <Second><![CDATA[http://example.com?ding=bat&few=baz]]></Second>
+  <Second><![CDATA[x>]]></Second>
+  <Second><![CDATA[x<]]></Second>
+  <Second><![CDATA[x&]]></Second>
+  <Second><![CDATA[x"]]></Second>
+  <Second><![CDATA[x']]></Second>
+  <Second>x=</Second>
+  <!-- Following one needs some meta info to find if decoder got it form CDATA wrapped token -->
+  <Second><![CDATA[<]]></Second>
+  <Second><![CDATA[>]]></Second>
+  <Second><![CDATA["]]></Second>
+  <Second><![CDATA[']]></Second>
+  <Second><![CDATA[&]]></Second>
+</Top>

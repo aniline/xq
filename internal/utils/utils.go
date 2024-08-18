@@ -143,7 +143,13 @@ func FormatXml(reader io.Reader, writer io.Writer, indent string, colors int) er
 				_, _ = fmt.Fprint(writer, tagColor(">"))
 				startTagClosed = true
 			}
-			_, _ = fmt.Fprint(writer, str)
+                        escaped := new(strings.Builder)
+                        _ = xml.EscapeText(escaped, []byte(str))
+                        if escaped.String() != str && strings.ContainsAny(str, "<>&=\"'") {
+                                _, _ = fmt.Fprint(writer, "<![CDATA["+str+"]]>")
+                        } else {
+                                _, _ = fmt.Fprint(writer, str)
+                        }
 		case xml.Comment:
 			if !startTagClosed {
 				_, _ = fmt.Fprint(writer, tagColor(">"))
